@@ -18,10 +18,21 @@ class Dashboard extends CI_Controller {
 	 * map to /index.php/welcome/<method_name>
 	 * @see https://codeigniter.com/user_guide/general/urls.html
 	 */
+	function __construct()
+	{
+		parent::__construct();
+
+		$this->load->model('M_admin');
+	}
 	public function index()
 	{
+		
+		$data = array(
+			'page' => 'dashboard', 
+		);
+
 		$this->load->view('admin/layout/header');
-		$this->load->view('admin/dashboard');
+		$this->load->view('admin/dashboard', $data);
 		$this->load->view('admin/layout/footer');
 	}
 }

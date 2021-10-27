@@ -18,33 +18,27 @@
             <!-- end main content-->
 
         </div>
-        <!-- END layout-wrapper -->
-
         
-        <!-- Right bar overlay-->
-        <div class="rightbar-overlay"></div>
+        <!-- init js -->
+        <script src="<?php echo base_url(); ?>assets/admin/assets/js/pages/form-editor.init.js"></script>
 
-        <!-- JAVASCRIPT -->
-        <script type="text/javascript" src="<?php echo base_url(); ?>assets/admin/assets/libs/jquery/jquery.min.js"></script>
-        <script type="text/javascript" src="<?php echo base_url(); ?>assets/admin/assets/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
-        <script type="text/javascript" src="<?php echo base_url(); ?>assets/admin/assets/libs/metismenu/metisMenu.min.js"></script>
-        <script src="<?php echo base_url(); ?>assets/admin/assets/libs/simplebar/simplebar.min.js"></script>
-        <script src="<?php echo base_url(); ?>assets/admin/assets/libs/node-waves/waves.min.js"></script>
-        <script src="<?php echo base_url(); ?>assets/admin/assets/libs/feather-icons/feather.min.js"></script>
-        <!-- pace js -->
-        <script src="<?php echo base_url(); ?>assets/admin/assets/libs/pace-js/pace.min.js"></script>
+        <!-- color picker js -->
+        <script src="<?php echo base_url(); ?>assets/admin/assets/libs/@simonwep/pickr/pickr.min.js"></script>
+        <script src="<?php echo base_url(); ?>assets/admin/assets/libs/@simonwep/pickr/pickr.es5.min.js"></script>
 
-        <!-- apexcharts -->
-        <script src="<?php echo base_url(); ?>assets/admin/assets/libs/apexcharts/apexcharts.min.js"></script>
+        <!-- datepicker js -->
+        <script src="<?php echo base_url(); ?>assets/admin/assets/libs/flatpickr/flatpickr.min.js"></script>
 
-        <!-- Plugins js-->
-        <script src="<?php echo base_url(); ?>assets/admin/assets/libs/admin-resources/jquery.vectormap/jquery-jvectormap-1.2.2.min.js"></script>
-        <script src="<?php echo base_url(); ?>assets/admin/assets/libs/admin-resources/jquery.vectormap/maps/jquery-jvectormap-world-mill-en.js"></script>
-        <!-- dashboard init -->
-        <script src="<?php echo base_url(); ?>assets/admin/assets/js/pages/dashboard.init.js"></script>
-
+        <!-- init js -->
+        <script src="<?php echo base_url(); ?>assets/admin/assets/js/pages/form-advanced.init.js"></script>
+        
+        <!-- END layout-wrapper -->
         <script src="<?php echo base_url(); ?>assets/admin/assets/js/app.js"></script>
+        
 
+        <script>
+        feather.replace()
+        </script>
     </body>
 
 </html>
