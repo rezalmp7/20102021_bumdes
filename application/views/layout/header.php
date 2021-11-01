@@ -30,11 +30,79 @@
     <title>Ecop - Multipurpose eCommerce HTML Template</title>
     <link rel="icon" type="image/png" href="<?php echo base_url(); ?>assets/client/assets/images/favicon.png">
     <link rel="stylesheet" href="<?php echo base_url(); ?>assets/client/assets/css/star-input.css">
+    
+    <!-- Sweet Alert-->
+    <link href="<?php echo base_url(); ?>assets/admin/assets/libs/sweetalert2/sweetalert2.min.css" rel="stylesheet" type="text/css" />
+
+        
+    <script src="<?php echo base_url(); ?>assets/client/assets/js/jquery.min.js"></script>
+
+    <!-- Sweet Alerts js -->
+    <script src="<?php echo base_url(); ?>assets/admin/assets/libs/sweetalert2/sweetalert2.min.js"></script>
 
     <script src="<?php echo base_url(); ?>assets/admin/assets/libs/feather-icons/feather.min.js"></script>
 </head>
 
 <body>
+    <?php
+    if($this->session->flashdata('error') != '')
+    {
+    ?>
+    <script>
+        let timerInterval
+        Swal.fire({
+            icon: 'error',
+            html: "<?php echo $this->session->flashdata('error'); ?>",
+            timer: 2000,
+            didOpen: () => {
+                Swal.showLoading()
+                timerInterval = setInterval(() => {
+                b.textContent = Swal.getTimerLeft()
+                }, 100)
+            },
+            willClose: () => {
+                clearInterval(timerInterval)
+            }
+            }).then((result) => {
+            /* Read more about handling dismissals below */
+            if (result.dismiss === Swal.DismissReason.timer) {
+                console.log('I was closed by the timer')
+            }
+        })
+    </script>
+    <?php
+    $this->session->set_flashdata('error', '');
+    }
+    if($this->session->flashdata('success') != '')
+    {
+    ?>
+    <script>
+        let timerInterval
+        Swal.fire({
+            icon: 'success',
+            html: "<?php echo $this->session->flashdata('success'); ?>",
+            timer: 2000,
+            didOpen: () => {
+                Swal.showLoading()
+                const b = Swal.getHtmlContainer().querySelector('b')
+                timerInterval = setInterval(() => {
+                b.textContent = Swal.getTimerLeft()
+                }, 100)
+            },
+            willClose: () => {
+                clearInterval(timerInterval)
+            }
+            }).then((result) => {
+            /* Read more about handling dismissals below */
+            if (result.dismiss === Swal.DismissReason.timer) {
+                console.log('I was closed by the timer')
+            }
+        })
+    </script>
+    <?php
+        $this->session->set_flashdata('success', '');
+    }
+    ?>
 
     <div class="loader">
         <div class="d-table">
@@ -88,14 +156,14 @@
                                 <button type="button" class="btn wishlist cart-popup-btn" data-bs-toggle="modal"
                                     data-bs-target="#exampleModal" data-bs-whatever="@mdo">
                                     <i class='bx bxs-cart'></i>
-                                    <span>2</span>
+                                    <span><?php echo $count_cart; ?></span>
                                 </button>
                             </li>
                             <li>
                                 <button type="button" class="btn wishlist" data-bs-toggle="modal"
                                     data-bs-target="#exampleModalWishlist" data-bs-whatever="@mdo">
                                     <i class='bx bx-heart'></i>
-                                    <span>2</span>
+                                    <span><?php echo $count_wishlist; ?></span>
                                 </button>
                             </li>
                             <?php
@@ -103,10 +171,16 @@
                             {
                             ?>
                             <li>
-                                <a class="join" href="<?php echo base_url(); ?>login/logout">
-                                    <i class="flaticon-round-account-button-with-user-inside"></i>
-                                    <?php echo $this->session->userdata('bumdes_nama'); ?>/Logout
-                                </a>
+                                <div class="btn-group">
+                                    <button type="button" class="join dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                                        <i class="flaticon-round-account-button-with-user-inside"></i>
+                                        <?php echo $this->session->userdata('bumdes_nama'); ?>
+                                    </button>
+                                    <ul class="dropdown-menu dropdown-menu-end">
+                                        <li><a class="dropdown-item" href="<?php echo base_url(); ?>transaksi">Transaksi</a></li>
+                                        <li><a class="dropdown-item" href="<?php echo base_url(); ?>login/logout">Logout</a></li>
+                                    </ul>
+                                </div>
                             </li>
                             <?php
                             }

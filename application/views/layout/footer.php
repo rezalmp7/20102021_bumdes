@@ -55,9 +55,15 @@
                             <div class="row">
                                 <div class="col-6 col-sm-4 col-lg-4">
                                     <ul>
+                                        <?php
+                                        foreach ($kategori as $fookat) {
+                                        ?>
                                         <li>
-                                            <a href="index.html#">Kursi</a>
+                                            <a href="<?php echo base_url(); ?>"><?php echo $fookat['nama']; ?></a>
                                         </li>
+                                        <?php
+                                        }
+                                        ?>
                                     </ul>
                                 </div>
                             </div>
@@ -142,75 +148,52 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h2>Shopping Cart <span>02 Items</span></h2>
+                    <h2>Shopping Cart <span><?php echo $count_cart; ?> Items</span></h2>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
                     <div class="cart-table">
                         <table class="table">
                             <tbody>
+                                <?php
+                                foreach ($cart as $ca) {
+                                ?>
                                 <tr>
                                     <th scope="row">
-                                        <img src="<?php echo base_url(); ?>assets/client/assets/images/cart/cart1.png" alt="Cart">
+                                        <img src="<?php echo base_url(); ?>assets/img/produk/<?php echo $ca['gambar']; ?>" alt="Cart">
                                     </th>
                                     <td>
-                                        <h3>White Comfy Stool</h3>
-                                        <span class="rate">$200.00 x 1</span>
+                                        <h3><?php echo $ca['nama']; ?></h3>
+                                        <span class="rate">Rp <?php echo number_format($ca['harga']); ?></span>
                                     </td>
                                     <td>
                                         <ul class="number">
                                             <li>
                                                 <span class="minus">-</span>
-                                                <input type="text" value="1" />
+                                                <input type="text" name="qty" value="<?php echo $ca['qty']; ?>" />
                                                 <span class="plus">+</span>
                                             </li>
                                         </ul>
                                     </td>
                                     <td>
-                                        <a class="close" href="index.html#">
+                                        <a class="close" href="<?php echo base_url(); ?>cart/hapus/<?php echo $ca['id_cart']; ?>">
                                             <i class='bx bx-x'></i>
                                         </a>
                                     </td>
                                 </tr>
-                                <tr>
-                                    <th scope="row">
-                                        <img src="<?php echo base_url(); ?>assets/client/assets/images/cart/cart2.png" alt="Cart">
-                                    </th>
-                                    <td>
-                                        <h3>Yellow Armchair</h3>
-                                        <span class="rate">$180.00 x 1</span>
-                                    </td>
-                                    <td>
-                                        <ul class="number">
-                                            <li>
-                                                <span class="minus">-</span>
-                                                <input type="text" value="1" />
-                                                <span class="plus">+</span>
-                                            </li>
-                                        </ul>
-                                    </td>
-                                    <td>
-                                        <a class="close" href="index.html#">
-                                            <i class='bx bx-x'></i>
-                                        </a>
-                                    </td>
-                                </tr>
+                                <?php
+                                }
+                                ?>
                             </tbody>
                         </table>
-                        <div class="total-amount">
-                            <h3>Total: <span>$380.00</span></h3>
-                        </div>
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <form>
-                        <input type="text" class="form-control" placeholder="Enter Coupon Code">
-                        <button type="submit" class="btn common-btn">
-                            Proceed To Checkout
-                            <img src="<?php echo base_url(); ?>assets/client/assets/images/shape1.png" alt="Shape">
-                            <img src="<?php echo base_url(); ?>assets/client/assets/images/shape2.png" alt="Shape">
-                        </button>
-                    </form>
+                    <a href="<?php echo base_url(); ?>checkout" class="btn common-btn">
+                        Proceed To Checkout
+                        <img src="<?php echo base_url(); ?>assets/client/assets/images/shape1.png" alt="Shape">
+                        <img src="<?php echo base_url(); ?>assets/client/assets/images/shape2.png" alt="Shape">
+                    </a>
                 </div>
             </div>
         </div>
@@ -222,55 +205,40 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h2>Wishlist <span>02 Items</span></h2>
+                    <h2>Wishlist <span><?php echo $count_wishlist; ?> Items</span></h2>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
                     <div class="cart-table">
                         <table class="table">
                             <tbody>
+                                <?php
+                                foreach ($wishlist as $wl) {
+                                ?>
                                 <tr>
                                     <th scope="row">
-                                        <img src="<?php echo base_url(); ?>assets/client/assets/images/cart/cart1.png" alt="Cart">
+                                        <img src="<?php echo base_url(); ?>assets/img/produk/<?php echo $wl['gambar']; ?>" alt="Cart">
                                     </th>
                                     <td>
-                                        <h3>White Comfy Stool</h3>
-                                        <span class="rate">$200.00 x 1</span>
+                                        <h3><?php echo $wl['nama']; ?></h3>
+                                        <span class="rate">Rp. <?php echo number_format($wl['harga']); ?></span>
                                     </td>
                                     <td>
-                                        <a class="common-btn" href="shop.html">
+                                        <a class="common-btn" href="<?php echo base_url(); ?>cart/tambah_wishlist?id_produk=<?php echo $wl['id_produk']; ?>&from=produk">
                                             Add To Cart
                                             <img src="<?php echo base_url(); ?>assets/client/assets/images/shape1.png" alt="Shape">
                                             <img src="<?php echo base_url(); ?>assets/client/assets/images/shape2.png" alt="Shape">
                                         </a>
                                     </td>
                                     <td>
-                                        <a class="close" href="index.html#">
+                                        <a class="close" href="<?php echo base_url(); ?>cart/hapus_wishlist/<?php echo $wl['id_wishlist']; ?>">
                                             <i class='bx bx-x'></i>
                                         </a>
                                     </td>
                                 </tr>
-                                <tr>
-                                    <th scope="row">
-                                        <img src="<?php echo base_url(); ?>assets/client/assets/images/cart/cart2.png" alt="Cart">
-                                    </th>
-                                    <td>
-                                        <h3>Yellow Armchair</h3>
-                                        <span class="rate">$180.00 x 1</span>
-                                    </td>
-                                    <td>
-                                        <a class="common-btn" href="shop.html">
-                                            Add To Cart
-                                            <img src="<?php echo base_url(); ?>assets/client/assets/images/shape1.png" alt="Shape">
-                                            <img src="<?php echo base_url(); ?>assets/client/assets/images/shape2.png" alt="Shape">
-                                        </a>
-                                    </td>
-                                    <td>
-                                        <a class="close" href="index.html#">
-                                            <i class='bx bx-x'></i>
-                                        </a>
-                                    </td>
-                                </tr>
+                                <?php
+                                }
+                                ?>
                             </tbody>
                         </table>
                     </div>
@@ -288,7 +256,6 @@
     </div>
 
 
-    <script src="<?php echo base_url(); ?>assets/client/assets/js/jquery.min.js"></script>
     <script src="<?php echo base_url(); ?>assets/client/assets/js/popper.min.js"></script>
     <script src="<?php echo base_url(); ?>assets/client/assets/js/bootstrap.min.js"></script>
 

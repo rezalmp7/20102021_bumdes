@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Home extends CI_Controller {
+class Cart extends CI_Controller {
 
 	/**
 	 * Index Page for this controller.
@@ -38,22 +38,64 @@ class Home extends CI_Controller {
 
         if($post != null)
         {
-            $data_insert = array(
-                'id_produk' => $post['id_produk'], 
-                'qty' => $post['qty'], 
-                'id_pelanggan' => $id_pelanggan, 
+            $where_cek = array(
+                'id_produk' => $post['id_produk'],
+                'id_pelanggan' => $id_pelanggan 
             );
+            $cek_cart = $this->M_admin->select_where('cart', $where_cek)->num_rows();
+
+            if($cek_cart > 0)
+            {
+                $redirect_to = $get['from'];
+                $this->session->set_flashdata('error', "Produk sudah ada dalam Cart");
+			    redirect(base_url($redirect_to));
+            }
+            else {
+                $data_insert = array(
+                    'id_produk' => $post['id_produk'], 
+                    'qty' => $post['qty'], 
+                    'id_pelanggan' => $id_pelanggan, 
+                );
+
+                $this->M_admin->insert_data('cart', $data_insert);
+                
+                $redirect_to = $get['from'];
+                $this->session->set_flashdata('success', "Produk Berhasil masuk dalam Cart");
+                redirect(base_url($redirect_to));
+            }
         }
         elseif($get != null)
         {
-             $data_insert = array(
-                'id_produk' => $get['id_produk'], 
-                'qty' => 1, 
-                'id_pelanggan' => $id_pelanggan, 
+            $where_cek = array(
+                'id_produk' => $get['id_produk'],
+                'id_pelanggan' => $id_pelanggan 
             );
+            $cek_cart = $this->M_admin->select_where('cart', $where_cek)->num_rows();
+
+            if($cek_cart > 0)
+            {
+                $redirect_to = $get['from'];
+                $this->session->set_flashdata('error', "Produk sudah ada dalam Cart");
+			    redirect(base_url($redirect_to));
+            }
+            else {
+                $data_insert = array(
+                    'id_produk' => $get['id_produk'], 
+                    'qty' => 1, 
+                    'id_pelanggan' => $id_pelanggan, 
+                );
+
+                $this->M_admin->insert_data('cart', $data_insert);
+                
+                $redirect_to = $get['from'];
+                $this->session->set_flashdata('success', "Produk Berhasil masuk dalam Cart");
+                redirect(base_url($redirect_to));
+            }
         }
-        
-        $this->M_admin->insert_data('cart', $data_insert);
+        else {
+            $this->session->set_flashdata('error', "Data tidak ditemukan");
+            redirect(base_url());
+        }        
     }
     function tambah_wishlist()
     {
@@ -61,14 +103,43 @@ class Home extends CI_Controller {
         
         $id_pelanggan = $this->session->userdata('bumdes_id');
 
-        $data_insert = array(
-            'id_produk' => $get['id'], 
-            'id_pelanggan' => $id_pelanggan
+        
+        $where_cek = array(
+            'id_produk' => $get['id_produk'],
+            'id_pelanggan' => $id_pelanggan 
         );
-
-        $this->M_admin->insert_data('wishlist', $data_insert);
-
-        $redirect_to = $get['from'];
-        redirect(base_url($redirect_to));
+        $cek_wishlist = $this->M_admin->select_where('wishlist', $where_cek)->num_rows();
+        
+        if($cek_wishlist > 0)
+        {
+            $redirect_to = $get['from'];
+            $this->session->set_flashdata('error', "Produk sudah ada dalam Wishlist");
+		    redirect(base_url($redirect_to));
+        }
+        else {
+            $data_insert = array(
+                'id_produk' => $get['id_produk'], 
+                'id_pelanggan' => $id_pelanggan, 
+            );
+            $this->M_admin->insert_data('wishlist', $data_insert);
+                
+            $redirect_to = $get['from'];
+            $this->session->set_flashdata('success', "Produk Berhasil masuk dalam Wishlist");
+            redirect(base_url($redirect_to));
+        }
     }
+	public function hapus($id)
+	{
+		$where_hapus = array('id' => $id, );
+		$this->M_admin->delete_data('cart', $where_hapus);
+
+        redirect(base_url('home'));
+	}
+    public function hapus_wishlist($id)
+	{
+		$where_hapus = array('id' => $id, );
+		$this->M_admin->delete_data('wishlist', $where_hapus);
+
+        redirect(base_url('home'));
+	}
 }

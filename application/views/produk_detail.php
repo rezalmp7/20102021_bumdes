@@ -70,12 +70,13 @@
                                 <li>Stok: <span><?php echo $produk['stok']; ?></span></li>
                             </ul>
                             <form method="post" action="<?php echo base_url(); ?>cart/tambah_aksi">
+                                <input type="hidden" name="id_produk" value="<?php echo $produk['id']; ?>">
                                 <ul class="cart">
                                     <li>
                                         <ul class="number">
                                             <li>
                                                 <span class="minus">-</span>
-                                                <input type="text" value="1" max="<?php echo $produk['stok']; ?>"/>
+                                                <input type="text" name="qty" value="1" max="<?php echo $produk['stok']; ?>"/>
                                                 <span class="plus">+</span>
                                             </li>
                                         </ul>
@@ -89,9 +90,9 @@
                                     </li>
                                 </ul>
                             </form>
-                            <a class="wishlist-btn" href="single-product.html#">
+                            <a class="wishlist-btn" href="<?php echo base_url(); ?>cart/tambah_wishlist?id_produk=<?php echo $produk['id']; ?>&from=produk">
                                 <i class='bx bx-heart'></i>
-                                Add To Heart
+                                Tambah ke wishlist
                             </a>
                         </div>
                     </div>

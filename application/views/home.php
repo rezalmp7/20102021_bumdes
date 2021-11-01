@@ -36,7 +36,7 @@
                         <div class="col-sm-6 col-lg-4 mix <?php echo $a['nama_kategori']; ?> center-table">
                             <div class="products-item">
                                 <div class="top">
-                                    <a class="wishlist" href="index.html#">
+                                    <a class="wishlist" href="<?php echo base_url(); ?>cart/tambah_wishlist?id_produk=<?php echo $a['id']; ?>&from=">
                                         <i class='bx bx-heart'></i>
                                     </a>
                                     <img src="<?php echo base_url(); ?>assets/img/produk/<?php echo $a['gambar']; ?>" alt="<?php echo $a['nama_produk']; ?>">
@@ -48,7 +48,7 @@
                                     </div>
                                 </div>
                                 <div class="bottom">
-                                    <a class="cart-text" href="index.html#">Add To Cart</a>
+                                    <a class="cart-text" href="<?php echo base_url(); ?>cart/tambah_aksi?id_produk=<?php echo $a['id']; ?>&from=">Add To Cart</a>
                                     <i class='bx bx-plus'></i>
                                 </div>
                             </div>
