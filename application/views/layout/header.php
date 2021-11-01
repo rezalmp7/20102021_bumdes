@@ -29,8 +29,9 @@
     <link rel="stylesheet" href="<?php echo base_url(); ?>assets/client/assets/css/responsive.css">
     <title>Ecop - Multipurpose eCommerce HTML Template</title>
     <link rel="icon" type="image/png" href="<?php echo base_url(); ?>assets/client/assets/images/favicon.png">
-    
-        <script src="<?php echo base_url(); ?>assets/admin/assets/libs/feather-icons/feather.min.js"></script>
+    <link rel="stylesheet" href="<?php echo base_url(); ?>assets/client/assets/css/star-input.css">
+
+    <script src="<?php echo base_url(); ?>assets/admin/assets/libs/feather-icons/feather.min.js"></script>
 </head>
 
 <body>
@@ -97,12 +98,29 @@
                                     <span>2</span>
                                 </button>
                             </li>
+                            <?php
+                            if($this->session->userdata('bumdes_nama') != null)
+                            {
+                            ?>
+                            <li>
+                                <a class="join" href="<?php echo base_url(); ?>login/logout">
+                                    <i class="flaticon-round-account-button-with-user-inside"></i>
+                                    <?php echo $this->session->userdata('bumdes_nama'); ?>/Logout
+                                </a>
+                            </li>
+                            <?php
+                            }
+                            else {
+                            ?>
                             <li>
                                 <a class="join" href="<?php echo base_url(); ?>login">
                                     <i class="flaticon-round-account-button-with-user-inside"></i>
                                     Join
                                 </a>
                             </li>
+                            <?php
+                            }
+                            ?>
                         </ul>
                     </div>
                 </div>
@@ -140,7 +158,7 @@
                                 <a href="<?php echo base_url(); ?>" class="nav-link <?php if($page == 'home') echo 'active'; ?>">Home</a>
                             </li>
                             <li class="nav-item">
-                                <a href="<?php echo base_url(); ?>contact" class="nav-link <?php if($page == 'produk') echo 'active'; ?>">Produk</a>
+                                <a href="<?php echo base_url(); ?>produk" class="nav-link <?php if($page == 'produk') echo 'active'; ?>">Produk</a>
                             </li>
                             <li class="nav-item">
                                 <a href="<?php echo base_url(); ?>about" class="nav-link <?php if($page == 'about') echo 'active'; ?>">About Us</a>

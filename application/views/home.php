@@ -42,7 +42,7 @@
                                     <img src="<?php echo base_url(); ?>assets/img/produk/<?php echo $a['gambar']; ?>" alt="<?php echo $a['nama_produk']; ?>">
                                     <div class="inner">
                                         <h3>
-                                            <a href="single-product.html"><?php echo $a['nama_produk']; ?></a>
+                                            <a href="<?php echo base_url(); ?>produk/detail/<?php echo $a['id']; ?>"><?php echo $a['nama_produk']; ?></a>
                                         </h3>
                                         <span>Rp. <?php echo number_format($a['harga']); ?></span>
                                     </div>

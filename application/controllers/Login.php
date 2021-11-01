@@ -35,4 +35,45 @@ class Login extends CI_Controller {
 		$this->load->view('login');
 		$this->load->view('layout/footer');
 	}
+	function aksi_login()
+	{
+		$post = $this->input->post();
+
+        $password = md5($post['password']);
+
+        $where_cek = array(
+            'username' => $post['username'],
+            'password' => $password 
+        );
+
+        $sql = $this->M_admin->select_where('pelanggan', $where_cek);
+        $status = 'user_login';
+        
+        $cek_num = $sql->num_rows();
+        $cek_row = $sql->row_array();
+
+        if($cek_num > 0)
+        {
+
+            $data_session = array(
+				'bumdes_status' => $status,
+				'bumdes_nama' => $cek_row['nama'],
+				'bumdes_id' => $cek_row['id'],
+                'bumdes_username' => $cek_row['username']
+			);
+			$this->session->set_userdata($data_session);
+
+            $this->session->set_flashdata('error', "Login Berhasil");
+			redirect(base_url('home'));
+        }
+        else {
+            $this->session->set_flashdata('error', "Login Gagal");
+			redirect(base_url('login'));
+        }
+	}
+    function logout()
+    {
+        $this->session->sess_destroy();
+		redirect(base_url());
+    }
 }

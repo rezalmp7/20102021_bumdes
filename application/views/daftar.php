@@ -18,10 +18,10 @@
             </div>
         </div>
         <div class="title-img">
-            <img src="assets/images/page-title1.jpg" alt="About">
-            <img src="assets/images/shape16.png" alt="Shape">
-            <img src="assets/images/shape17.png" alt="Shape">
-            <img src="assets/images/shape18.png" alt="Shape">
+            <img src="<?php echo base_url(); ?>assets/client/assets/images/page-title1.jpg" alt="About">
+            <img src="<?php echo base_url(); ?>assets/client/assets/images/shape16.png" alt="Shape">
+            <img src="<?php echo base_url(); ?>assets/client/assets/images/shape17.png" alt="Shape">
+            <img src="<?php echo base_url(); ?>assets/client/assets/images/shape18.png" alt="Shape">
         </div>
     </div>
 
@@ -29,51 +29,46 @@
     <div class="user-area ptb-100">
         <div class="container">
             <div class="user-item">
-                <form>
+                <form method="POST" action="<?php echo base_url(); ?>daftar/daftar_aksi">
                     <h2>Register</h2>
                     <div class="form-group">
-                        <input type="text" class="form-control" placeholder="Your Name:">
+                        <label for="exampleInputEmail1">Nama</label>
+                        <input type="text" name="nama" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
                     </div>
                     <div class="form-group">
-                        <input type="text" class="form-control" placeholder="User Name:">
-                    </div>
-                    <div class="form-group">
-                        <input type="email" class="form-control" placeholder="Your Email:">
-                    </div>
-                    <div class="form-group">
-                        <input type="password" class="form-control" placeholder="Password:">
-                    </div>
-                    <div class="form-group">
-                        <input type="password" class="form-control" placeholder="Confirm Password:">
-                    </div>
-                    <div class="form-group">
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault4">
-                            <label class="form-check-label" for="flexCheckDefault4">
-                                I accept all <a href="terms-conditions.html">Terms & Conditions</a>
-                            </label>
+                        <label for="exampleInputEmail1">Jenis Kelamin</label>
+                        <div class="custom-control custom-radio">
+                            <input type="radio" id="customRadio1" name="jenkel" value="laki-laki" class="custom-control-input">
+                            <label class="custom-control-label" for="customRadio1">Laki-laki</label>
+                        </div>
+                        <div class="custom-control custom-radio">
+                            <input type="radio" id="customRadio2" name="jenkel" value="perempuan" class="custom-control-input">
+                            <label class="custom-control-label" for="customRadio2">Perempuan</label>
                         </div>
                     </div>
+                    <div class="form-group">
+                        <label for="exampleFormControlTextarea1">Alamat</label>
+                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="alamat"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">No HP</label>
+                        <input type="text" name="no_hp" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Username</label>
+                        <input type="text" name="username" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Password</label>
+                        <input type="password" name="password" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                    </div>
+                    
                     <button type="submit" class="btn common-btn">
                         Register
-                        <img src="assets/images/shape1.png" alt="Shape">
-                        <img src="assets/images/shape2.png" alt="Shape">
+                        <img src="<?php echo base_url(); ?>assets/client/assets/images/shape1.png" alt="Shape">
+                        <img src="<?php echo base_url(); ?>assets/client/assets/images/shape2.png" alt="Shape">
                     </button>
-                    <h4>Or</h4>
-                    <ul>
-                        <li>
-                            <a href="register.html#">
-                                <i class='bx bxl-facebook'></i>
-                                Register With Facebook
-                            </a>
-                        </li>
-                        <li>
-                            <a href="register.html#">
-                                <i class='bx bxl-google'></i>
-                                Register With Google
-                            </a>
-                        </li>
-                    </ul>
+                    
                     <h5>Already Have An Account? <a href="login.html">Login</a></h5>
                 </form>
             </div>

@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Home extends CI_Controller {
+class Produk extends CI_Controller {
 
 	/**
 	 * Index Page for this controller.
@@ -26,12 +26,11 @@ class Home extends CI_Controller {
 	}
 	public function index()
 	{
-		
 		$kategori = $this->M_admin->select_all('kategori')->result_array();
 		$produk = $this->M_admin->select_select_join_2table_type('produk.nama as nama_produk, produk.harga, produk.gambar, produk.id, kategori.nama as nama_kategori', 'produk', 'kategori', 'produk.kategori = kategori.id', 'left')->result_array();
 
 		$header = array(
-			'page' => 'home',
+			'page' => 'produk',
 			'kategori' => $kategori, 
 		);
 
@@ -41,7 +40,25 @@ class Home extends CI_Controller {
 		);
 
 		$this->load->view('layout/header', $header);
-		$this->load->view('home', $data);
+		$this->load->view('produk', $data);
 		$this->load->view('layout/footer');
 	}
+    public function detail($id)
+    {
+        $kategori = $this->M_admin->select_all('kategori')->result_array();
+        $header = array(
+			'page' => 'produk',
+			'kategori' => $kategori, 
+		);
+
+        $where_produk = array('id' => $id, );
+        $data['produk'] = $this->M_admin->select_where('produk', $where_produk)->row_array();
+		$where_kategori = array('id' => $data['produk']['kategori'], );
+		$data['kategori'] = $this->M_admin->select_where('kategori', $where_kategori)->row_array();
+
+        $this->load->view('layout/header', $header);
+        $this->load->view('produk_detail', $data);
+        $this->load->view('layout/footer');
+
+    }
 }

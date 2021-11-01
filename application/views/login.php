@@ -28,13 +28,13 @@
     <div class="user-area ptb-100">
         <div class="container">
             <div class="user-item">
-                <form>
+                <form method="POST" action="<?php echo base_url(); ?>login/aksi_login">
                     <h2>Login</h2>
                     <div class="form-group">
-                        <input type="email" class="form-control" placeholder="Your Email:">
+                        <input type="text" name="username" class="form-control" placeholder="Username:">
                     </div>
                     <div class="form-group">
-                        <input type="password" class="form-control" placeholder="Password:">
+                        <input type="password" name="password" class="form-control" placeholder="Password:">
                     </div>
                     <button type="submit" class="btn common-btn">
                         Login

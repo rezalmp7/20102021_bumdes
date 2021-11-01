@@ -288,7 +288,6 @@
     </div>
 
 
-    <script data-cfasync="false" src="../../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
     <script src="<?php echo base_url(); ?>assets/client/assets/js/jquery.min.js"></script>
     <script src="<?php echo base_url(); ?>assets/client/assets/js/popper.min.js"></script>
     <script src="<?php echo base_url(); ?>assets/client/assets/js/bootstrap.min.js"></script>
@@ -324,6 +323,7 @@
 
     <script src="<?php echo base_url(); ?>assets/client/assets/js/thumb-slide.js"></script>
 
+    <script src="<?php echo base_url(); ?>assets/client/assets/js/star-input.js"></script>  
     <script src="<?php echo base_url(); ?>assets/client/assets/js/custom.js"></script>
 </body>
 

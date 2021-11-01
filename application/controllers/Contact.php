@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Home extends CI_Controller {
+class Contact extends CI_Controller {
 
 	/**
 	 * Index Page for this controller.
@@ -26,22 +26,16 @@ class Home extends CI_Controller {
 	}
 	public function index()
 	{
-		
 		$kategori = $this->M_admin->select_all('kategori')->result_array();
 		$produk = $this->M_admin->select_select_join_2table_type('produk.nama as nama_produk, produk.harga, produk.gambar, produk.id, kategori.nama as nama_kategori', 'produk', 'kategori', 'produk.kategori = kategori.id', 'left')->result_array();
 
 		$header = array(
-			'page' => 'home',
+			'page' => 'contact',
 			'kategori' => $kategori, 
 		);
 
-		$data = array(
-			'kategori' => $kategori,
-			'produk' => $produk
-		);
-
 		$this->load->view('layout/header', $header);
-		$this->load->view('home', $data);
+		$this->load->view('contact');
 		$this->load->view('layout/footer');
 	}
 }
