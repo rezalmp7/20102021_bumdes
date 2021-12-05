@@ -170,7 +170,7 @@
                             <li>
                                 <a class="join" href="<?php echo base_url(); ?>login">
                                     <i class="flaticon-round-account-button-with-user-inside"></i>
-                                    Join
+                                    Bergabung
                                 </a>
                             </li>
                             <?php
@@ -198,13 +198,13 @@
                     <div class="collapse navbar-collapse mean-menu" id="navbarSupportedContent">
                         <ul class="navbar-nav">
                             <li class="nav-item">
-                                <a href="<?php echo base_url(); ?>" class="nav-link <?php if($page == 'home') echo 'active'; ?>">Home</a>
+                                <a href="<?php echo base_url(); ?>" class="nav-link <?php if($page == 'home') echo 'active'; ?>">Beranda</a>
                             </li>
                             <li class="nav-item">
                                 <a href="<?php echo base_url(); ?>produk" class="nav-link <?php if($page == 'produk') echo 'active'; ?>">Produk</a>
                             </li>
                             <li class="nav-item">
-                                <a href="<?php echo base_url(); ?>about" class="nav-link <?php if($page == 'about') echo 'active'; ?>">TentangKita</a>
+                                <a href="<?php echo base_url(); ?>about" class="nav-link <?php if($page == 'about') echo 'active'; ?>">Tentang Kita</a>
                             </li>
                             <li class="nav-item">
                                 <a href="<?php echo base_url(); ?>contact" class="nav-link <?php if($page == 'contact') echo 'active'; ?>">Kontak</a>

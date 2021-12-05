@@ -154,7 +154,7 @@
                                     <img src="<?php echo base_url(); ?>assets/admin/assets/images/logo-sm.jpeg" alt="" height="24">
                                 </span>
                                 <span class="logo-lg">
-                                    <img src="<?php echo base_url(); ?>assets/admin/assets/images/logo-sm.jpeg" alt="" height="24"> <span class="logo-txt">Minia</span>
+                                    <img src="<?php echo base_url(); ?>assets/admin/assets/images/logo-sm.jpeg" alt="" height="24"> <span class="logo-txt">BUMDes</span>
                                 </span>
                             </a>
 
@@ -163,7 +163,7 @@
                                     <img src="<?php echo base_url(); ?>assets/admin/assets/images/logo-sm.jpeg" alt="" height="24">
                                 </span>
                                 <span class="logo-lg">
-                                    <img src="<?php echo base_url(); ?>assets/admin/assets/images/logo-sm.jpeg" alt="" height="24"> <span class="logo-txt">Minia</span>
+                                    <img src="<?php echo base_url(); ?>assets/admin/assets/images/logo-sm.jpeg" alt="" height="24"> <span class="logo-txt">BUMDes</span>
                                 </span>
                             </a>
                         </div>
@@ -221,7 +221,7 @@
                                 </a>
                             </li>
                             
-                            <li class="menu-title" data-key="t-menu">Transaksi</li>
+                            <li class="menu-title" data-key="t-menu">Menu Utama</li>
                             
                             <li>
                                 <a href="<?php echo base_url(); ?>admin/kategori">

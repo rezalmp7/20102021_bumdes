@@ -195,7 +195,7 @@
                     </div>
                     <div class="modal-footer">
                         <button type="submit" class="btn common-btn">
-                            Proceed To Checkout
+                            Proses
                             <img src="<?php echo base_url(); ?>assets/client/assets/images/shape1.png" alt="Shape">
                             <img src="<?php echo base_url(); ?>assets/client/assets/images/shape2.png" alt="Shape">
                         </button>
@@ -231,7 +231,7 @@
                                     </td>
                                     <td>
                                         <a class="common-btn" href="<?php echo base_url(); ?>cart/tambah_wishlist?id_produk=<?php echo $wl['id_produk']; ?>&from=produk">
-                                            Add To Cart
+                                            <i class="bx bxs-cart"></i>
                                             <img src="<?php echo base_url(); ?>assets/client/assets/images/shape1.png" alt="Shape">
                                             <img src="<?php echo base_url(); ?>assets/client/assets/images/shape2.png" alt="Shape">
                                         </a>

@@ -48,7 +48,7 @@
                             </div>
                             <div class="form-group">
                                 <textarea id="your-notes" rows="4" name="note" class="form-control"
-                                    placeholder="Notes (Optional)"></textarea>
+                                    placeholder="Catatan (Optional)"></textarea>
                             </div>
                         </div>
                     </div>
